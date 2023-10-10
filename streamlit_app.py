@@ -9,7 +9,7 @@ st.title('我的第一個應用程式')
 st.write("嘗試創建**表格**：")
 df = pd.DataFrame({
     'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
+    'second column': [10, 30, 40, 20]
 })
 st.dataframe(df.style.highlight_max(axis=0))
 
