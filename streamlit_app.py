@@ -15,3 +15,13 @@ df = pd.DataFrame({
 })
 df
 
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+st.line_chart(chart_data)
+
+map_data = pd.DataFrame(
+    np.random.randn(100, 2) / [50, 50] + [23.9738835,120.9791046],
+    columns=['lat', 'lon'])
+st.map(map_data)
+
