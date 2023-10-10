@@ -22,7 +22,7 @@ st.line_chart(chart_data)
 
 if st.sidebar.checkbox('顯示地圖'):
     map_data = pd.DataFrame(
-        np.random.randn(100, 2) / [100, 100] + [23.9738835,120.9791046],
+        np.random.randn(200, 2) / [50, 50] + [23.9738835,120.9791046],
         columns=['lat', 'lon'])
     st.map(map_data, zoom=6)
 
