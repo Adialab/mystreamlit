@@ -24,5 +24,5 @@ if st.sidebar.checkbox('顯示地圖'):
     map_data = pd.DataFrame(
         np.random.randn(100, 2) / [100, 100] + [23.9738835,120.9791046],
         columns=['lat', 'lon'])
-    st.map(map_data, zoom=5)
+    st.map(map_data, zoom=6)
 
