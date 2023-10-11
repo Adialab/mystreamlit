@@ -24,3 +24,5 @@ if st.sidebar.checkbox('顯示地圖'):
         columns=['lat', 'lon'])
     st.map(map_data, zoom=6)
 
+if st.sidebar.checkbox('播放影片'):
+    st.video("https://youtu.be/yfaLi0jDrLc")
