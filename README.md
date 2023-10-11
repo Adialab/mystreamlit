@@ -19,7 +19,7 @@
 
 ## 程式碼
 
-程式碼位於 [GitHub Repo](https://github.com/fgtseng/streamlit-demo)。
+程式碼位於 [GitHub Repo](https://github.com/Adialab/mystreamlit)。
 
 ## 貢獻
 
