@@ -3,6 +3,15 @@ import time
 import streamlit as st
 import numpy as np
 import pandas as pd
+import requests
+from io import StringIO
+import json
+import re
+
+CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
+def cleanhtml(raw_html):
+  cleantext = re.sub(CLEANR, '', raw_html)
+  return cleantext
 
 st.title('我的第一個Streamlit應用程式')
 
