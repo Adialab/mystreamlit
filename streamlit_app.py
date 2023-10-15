@@ -59,4 +59,4 @@ if st.sidebar.checkbox('顯示地圖'):
     st.map(map_data, zoom=6)
 
 if st.sidebar.checkbox('播放影片'):
-    st.video("https://youtu.be/yfaLi0jDrLc")
+    st.video("https://youtu.be/j22-EYkzMDg")
