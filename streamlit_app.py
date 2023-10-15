@@ -41,13 +41,7 @@ chart_data = pd.DataFrame(
     columns=['a', 'b', 'c'])
 st.line_chart(chart_data)
 
-date_input = st.text_input(
-    "Enter some date , ex. 20231013 👇",
-        label_visibility=st.session_state.visibility,
-        disabled=st.session_state.disabled,
-        placeholder=st.session_state.placeholder,
-    )
-
+date_input = st.text_input("Enter some date , ex. 20231013 👇",)
 if date_input:
     date = date_input
     try:
