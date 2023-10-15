@@ -46,7 +46,7 @@ if date_input:
     date = date_input
     try:
         StockData = crawlerStock(date)
-        st.dataframe(StockData)
+        edited_df = st.data_editor(StockData)
     except:
         print('Something Error...')
         pass
