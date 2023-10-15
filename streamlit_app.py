@@ -13,6 +13,20 @@ def cleanhtml(raw_html):
   cleantext = re.sub(CLEANR, '', raw_html)
   return cleantext
 
+def crawlerStock(date):
+    data = requests.get('https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date='+date+'&type=ALLBUT0999&response=json').text
+    data = cleanhtml(data)
+    json_data = json.loads(data)
+    pre_data = json_data['tables'][8]['data']
+    
+    stock_data = pd.DataFrame(pre_data, columns = ['stock_id', 'Stock_name', 'traded_volumn', 'traded_lots', 'traded_cash', 'open', 'high','low','close', 'change','change_in_price','last_revealed_buy_price','last_revealed_buy_volume','last_revealed_sell_price','last_revealed_sell_volume','pe_ratio'])
+    stock_data.insert(len(stock_data.columns), 'date', date)
+    stock_data['date'] = pd.to_datetime(stock_data['date'].astype(str))
+    stock_data['traded_volumn'] = stock_data['traded_volumn'].str.replace(',','').astype(int)
+    stock_data['traded_lots'] = stock_data['traded_lots'].str.replace(',','').astype(int)
+    stock_data['traded_cash'] = stock_data['traded_cash'].str.replace(',','').astype(int)
+    return stock_data
+
 st.title('我的第一個Streamlit應用程式')
 
 st.write("嘗試創建**表格**：")
@@ -26,6 +40,22 @@ chart_data = pd.DataFrame(
     np.random.randn(20, 3),
     columns=['a', 'b', 'c'])
 st.line_chart(chart_data)
+
+date_input = st.text_input(
+    "Enter some date , ex. 20231013 👇",
+        label_visibility=st.session_state.visibility,
+        disabled=st.session_state.disabled,
+        placeholder=st.session_state.placeholder,
+    )
+
+if date_input:
+    date = date_input
+    try:
+        StockData = crawlerStock(date)
+        st.dataframe(StockData)
+    except:
+        print('Something Error...')
+        pass
 
 if st.sidebar.checkbox('顯示地圖'):
     map_data = pd.DataFrame(
