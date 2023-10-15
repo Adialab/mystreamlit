@@ -25,7 +25,7 @@ def crawlerStock(date):
     stock_data['traded_volumn'] = stock_data['traded_volumn'].str.replace(',','').astype(int)
     stock_data['traded_lots'] = stock_data['traded_lots'].str.replace(',','').astype(int)
     stock_data['traded_cash'] = stock_data['traded_cash'].str.replace(',','').astype(int)
-    stock_data = stock_data.astype({'open':'float','high':'float','low':'float','close':'float'})
+    #stock_data = stock_data.astype({'open':'float','high':'float','low':'float','close':'float'})
     return stock_data
 
 st.title('我的第一個Streamlit應用程式')
