@@ -61,8 +61,3 @@ if st.sidebar.checkbox('顯示地圖'):
 if st.sidebar.checkbox('播放影片'):
     st.video("https://youtu.be/zQwz5CAGSY0")
 
-if st.sidebar.checkbox('日出沒時刻'):
-    cwa_data  = requests.get('https://opendata.cwa.gov.tw/api/v1/rest/datastore/A-B0062-001?Authorization=CWA-D1D952FD-2A6B-459F-9127-7CAE3C6B04FE').text
-    st.json(cwa_data)
-
-
